@@ -25,6 +25,9 @@ export function totalGasto(despesas: Despesa[]): number {
 
   return despesas.reduce((acumulador, despesa) => acumulador + despesa.valor, 0);
 }
+export function maiorDespesa(despesas: Despesa[]): Despesa | undefined {
+  throw new Error("não implementado");
+}
 
 
 

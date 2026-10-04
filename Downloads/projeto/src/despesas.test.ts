@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { adicionarDespesa, removerDespesa, despesasDaCategoria, totalGasto } from './despesas.js';
+import { adicionarDespesa, removerDespesa, despesasDaCategoria, totalGasto, maiorDespesa } from './despesas.js';
 import { Despesa } from './tipos.js';
 
 // 1. Suite da Função adicionarDespesa
@@ -107,4 +107,28 @@ describe('totalGasto', () => {
     const resultado = totalGasto(listaInicial);
     expect(resultado).toBe(0);
   });
+  describe('maiorDespesa', () => {
+  // Caso Normal
+  it('deve retornar a despesa de maior valor dentro da lista', () => {
+    const listaInicial: Despesa[] = [
+      { id: 1, descricao: 'Cinema', valor: 45.00, categoria: 'lazer', mes: 2 },
+      { id: 2, descricao: 'Aluguel', valor: 1200.00, categoria: 'moradia', mes: 2 },
+      { id: 3, descricao: 'Uber', valor: 25.00, categoria: 'transporte', mes: 2 }
+    ];
+    
+    const resultado = maiorDespesa(listaInicial);
+    
+    expect(resultado).toEqual({ id: 2, descricao: 'Aluguel', valor: 1200.00, categoria: 'moradia', mes: 2 });
+  });
+
+  // Caso de Borda
+  it('deve retornar undefined se a lista de despesas estiver vazia', () => {
+    const listaInicial: Despesa[] = [];
+    
+    const resultado = maiorDespesa(listaInicial);
+    
+    expect(resultado).toBeUndefined(); // Verifica se o retorno foi exatamente undefined
+  });
+});
+
 });
