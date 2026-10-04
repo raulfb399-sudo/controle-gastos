@@ -15,3 +15,13 @@ export function adicionarDespesa(despesas: Despesa[], nova: Despesa): Despesa[] 
   // Criamos uma nova lista combinando os elementos anteriores com a nova despesa usando o operador spread.
   return [...despesas, nova];
 }
+export function removerDespesa(despesas: Despesa[], id: number): Despesa[] {
+  // Atendendo ao requisito técnico obrigatório de imutabilidade:
+  // O método '.filter()' percorre o array e gera automaticamente uma LISTA NOVA.
+  // Ele avalia cada item: se o id da despesa for DIFERENTE do id informado, o item permanece.
+  // Se o id for IGUAL, o item fica de fora da nova lista.
+  // Caso o id não exista na lista, nenhum item é removido, retornando uma cópia idêntica.
+  return despesas.filter(despesa => despesa.id !== id);
+}
+
+
