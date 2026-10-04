@@ -21,6 +21,12 @@ export function despesasDaCategoria(despesas: Despesa[], categoria: 'alimentaÃ§Ã
 
   return despesas.filter(despesa => despesa.categoria === categoria);
 }
+export function totalGasto(despesas: Despesa[]): number {
+
+  return despesas.reduce((acumulador, despesa) => acumulador + despesa.valor, 0);
+}
+
+
 
 
 
