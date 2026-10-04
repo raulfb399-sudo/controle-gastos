@@ -26,19 +26,19 @@ export function totalGasto(despesas: Despesa[]): number {
   return despesas.reduce((acumulador, despesa) => acumulador + despesa.valor, 0);
 }
 export function maiorDespesa(despesas: Despesa[]): Despesa | undefined {
-  // Regra de negócio: se a lista recebida for vazia, retorna undefined de forma segura.
+
   if (despesas.length === 0) {
     return undefined;
   }
 
-  // A exclamação (!) avisa ao TypeScript strict mode que a primeira posição com certeza existe.
+
   let maior = despesas[0]!;
 
-  // O laço for...of extrai cada objeto 'despesa' (no singular) diretamente de dentro do array.
+
   for (const despesa of despesas) {
-    // Correção: avaliamos 'despesa.valor' (da despesa atual do laço) contra 'maior.valor'
+
     if (despesa.valor > maior.valor) {
-      maior = despesa; // Atualiza o objeto da maior despesa encontrada
+      maior = despesa; 
     }
   }
 
