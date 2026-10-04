@@ -18,9 +18,10 @@ export function removerDespesa(despesas: Despesa[], id: number): Despesa[] {
 
 // 3. Função: Despesas da Categoria (Esqueleto para o Teste)
 export function despesasDaCategoria(despesas: Despesa[], categoria: 'alimentação' | 'transporte' | 'lazer' | 'moradia'): Despesa[] {
-  // Mantemos o erro de propósito para cumprir a regra do trabalho do professor
-  throw new Error("não implementado");
+
+  return despesas.filter(despesa => despesa.categoria === categoria);
 }
+
 
 
 
